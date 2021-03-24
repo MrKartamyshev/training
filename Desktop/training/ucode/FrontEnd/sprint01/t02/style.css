@@ -1,0 +1,51 @@
+table {
+    text-align: center; 
+    border-collapse: collapse; 
+   
+ }
+ img{
+     width: 120px;
+     height: 120px;
+     border-radius: 30px;
+ 
+ }
+ 
+ td {
+     border: 1px solid #ffffff;
+     padding: 10px;
+ }
+ 
+ .black {
+     background-color: black;
+     color: white;
+ }
+ 
+ 
+ .orange{
+     background-color: orange;
+ }
+ 
+ .green{
+     background-color: green;
+ }
+ 
+ .blue{
+     background-color: blue;
+ }
+ 
+ .yellow{
+     background-color: yellow;
+ }
+ 
+ .red{
+     background-color: red;
+ }
+ 
+ .purple{
+     background-color: purple;
+ }
+ 
+ footer {
+     text-align: center;
+     padding: 10px;
+ }

@@ -1,0 +1,26 @@
+.box{
+  overflow: hidden;
+}
+.boll {
+    
+    border-radius: 100%;
+    background-color: green;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    animation: new 5s linear infinite alternate 0s forwards;
+  }
+  @keyframes new {
+    0% {
+      margin-left: 0%;
+    }
+    100% {
+      margin-left: 90%;
+    }
+  }
+  
+  .boll:hover {
+    background-color: red;
+    transition: 2s;
+  }
+  

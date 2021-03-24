@@ -1,0 +1,35 @@
+h1{
+position: relative;
+padding: 50px;
+}
+
+.box{
+    position: relative;   
+    margin-right: 200px;
+    padding: 25px;
+    background-color: lightgrey;
+    margin: 100px;
+    font-size: 25px;
+}
+
+.box::before{
+    position: absolute;
+    content: "";
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    top: 0;
+    left: -5%;
+    width: 110%;
+    height: 98%;
+}
+
+.box::after{
+    position: absolute;
+    content: "";
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    left: 0;
+    top: -50%;
+    width: 99.9%;
+    height: 200%;
+} 

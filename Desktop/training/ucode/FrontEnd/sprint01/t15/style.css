@@ -1,0 +1,15 @@
+.hand{
+    width: 250px;
+}
+
+img{
+    width: 100px;
+}
+
+.hand:hover + table tr:nth-child(2n+1) td:nth-child(2n) {
+    visibility: hidden;
+}
+
+.hand:hover + table tr:nth-child(2n) td:nth-child(2n+1) {
+    visibility: hidden;
+}

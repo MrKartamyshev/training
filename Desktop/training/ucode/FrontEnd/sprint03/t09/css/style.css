@@ -1,0 +1,29 @@
+*{
+    padding:18px;
+    margin:0;
+    }
+    
+    h1{
+        position: relative;
+        left: 250px;
+    }
+    
+    td {
+        border: 2px solid #cccccc;
+        width: 150px;
+        height: 150px;
+        text-align: center;
+        font-size:74px;
+        box-shadow:  5px 3px 5px 0px rgba(0,0,0,0.5);
+    }
+    
+    #game{
+        float: left;
+    }
+    
+    
+    #result{
+        margin-top: 10px;
+        left: 15px;
+        text-transform: uppercase;
+    }

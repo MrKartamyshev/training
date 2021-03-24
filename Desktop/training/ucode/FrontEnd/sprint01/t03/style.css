@@ -1,0 +1,15 @@
+button{ 
+    color: green;
+}
+
+button:hover{
+    color: red;
+}
+
+input{
+    color: green;
+}
+
+input:hover{
+    color: red;
+}

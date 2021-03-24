@@ -1,0 +1,29 @@
+body h2{
+text-align: center;
+}
+
+.element{
+    border: 1px solid;
+    width: 320px;
+}
+
+.all{
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+}
+
+div{
+    margin: 10px;
+}
+
+@media screen and (max-width: 320px) {
+    .element{
+        width: 100%;
+    }
+    
+}
+
+.all .element input {
+    width: 97%;
+}

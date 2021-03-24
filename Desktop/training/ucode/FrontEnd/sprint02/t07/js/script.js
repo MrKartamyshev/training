@@ -1,0 +1,21 @@
+function getAnswer(question, wrongAnswer, correctAnswer) {
+    return(`${question}\nwrong: ${wrongAnswer}\ncorrect: ${correctAnswer}\n\n`);
+}
+
+const a = '15';
+const b = 4;
+const c = true;
+const d = 'a';
+const e = 'B';
+const f = '';
+
+let answer = 'Not my type\n\n';
+
+answer += getAnswer('a+b=?', a + b, +a + b);
+answer += getAnswer('a+c=?', a + c, a - 14 + c);
+answer += getAnswer('e+d+e+d=?', e + d + e + d, e + d + e/0 + d );
+answer += getAnswer('c+f=?', c + f, c+9 + f);
+
+
+
+alert(answer);

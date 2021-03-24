@@ -1,0 +1,79 @@
+span{
+    font-size: 2em;
+    color: white;
+}
+h1{
+    background-color: red;
+    text-align: center;
+}
+body{
+    text-align: center;
+}
+
+nav{
+    color: black;
+}
+
+nav ul{
+    padding:0;
+			    margin:0;
+    list-style: none;
+    position: relative;
+}
+/* применяем inline-block позиционирование к элементам навигации */
+nav ul li {
+    
+    display: inline-block;
+    background-color: lightgrey;
+   
+}
+/* применяем inline-block позиционирование к элементам навигации */
+
+nav a{
+    display:block;
+    width:  400px;
+    height: 50px;
+	color: black;
+	font-size:20px;
+	line-height: 50px;
+    text-decoration:none;
+   
+}
+/* изменяем цвет фона при наведении курсора */
+
+nav a:hover {
+    background-color: red;
+}
+
+/* скрываем выпадающие списки по умолчанию и задаем абсолютное позиционироване */
+
+nav ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    
+}
+
+/* отображаем выпадающий список при наведении */
+
+nav ul li:hover > ul {
+    display: block;
+
+}
+
+nav ul ul li{
+    min-width:12px;
+    float:none;
+    display:list-item;
+    position: relative;
+}
+
+/* второй, третий и последующие уровни 
+			 * смещаем 2 и 3 уровни влево 
+			 * на значение длины первого уровня.
+			*/
+nav ul ul ul {
+    position: absolute;
+    margin-top: -50px;
+	left:100%;
+}

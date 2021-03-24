@@ -1,0 +1,13 @@
+h1 {
+    text-align: center;
+}
+
+div{
+    display: flex;
+    background-color: gray;
+    flex-direction: row;
+}
+
+div input{
+    width: 100%;
+}

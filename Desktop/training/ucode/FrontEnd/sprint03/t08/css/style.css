@@ -1,0 +1,33 @@
+body {
+    position: relative;
+}
+
+table {
+    border: 2px solid #000000;
+    margin: 0 auto;
+}
+
+tr:nth-child(1) {
+    height: 50px;
+    background: red !important;
+}
+tr {
+    background: lightgrey;
+}
+
+td {
+    text-align: center;
+    width: 85px;
+    height: 50px; 
+}
+
+#notification {
+    border-radius: 20px;
+    background: grey;
+    width: 250px;
+    text-align: center;
+    line-height: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
