@@ -164,7 +164,7 @@ window.addEventListener('DOMContentLoaded', ()=>{ // делаем загрузк
         
 
     // Используем классы для карточек 
-
+csdv
     
 
 });
