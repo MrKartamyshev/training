@@ -328,5 +328,8 @@ window.addEventListener('DOMContentLoaded', ()=>{ // делаем загрузк
                 closeModal()
             }, 4000)
         }
-        
+         
+
+
+
 });
