@@ -267,38 +267,34 @@ window.addEventListener('DOMContentLoaded', ()=>{ // делаем загрузк
         
                 form.insertAdjacentElement('afterend', statusMessage)//добавляем в конец элементов 
 
-                const request = new XMLHttpRequest()// создаем запрос 
-                request.open('POST', 'server.php'); // указываем метод и путь 
-
-
                 // заголовки для сервера , что именно приходит 
-                request.setRequestHeader('Content-type', 'application/json');
-                const formData = new FormData(form) //  конструктор для нового запроса 
+              
+                const formData = new FormData(form) //  собераем все данные спомощю нашей формы 
 
                 const object = {}
                 formData.forEach(function(value, key) {
                     object[key] = value
                 })
-
-                const json = JSON.stringify(object)
-
-                request.send(json)// посылаем запрос 
                 
-
-
-                request.addEventListener('load', () => {
-                    if( request.status === 200 ){
-                        console.log(request.response);// если запрос выполнен и данные улетели 
-                        showThanksModal(massag.success)
-                        form.reset() //  сбрасывем формы 
-                        setTimeout( () =>{  // удаляем наш див 
-                            statusMessage.remove()
-                        }, 2000)
-                    } else {
-                        showThanksModal(massag.failure)
-                    }
+                // берем и отправляем наши данные 
+                fetch('server.php', { // Куда
+                    method: "POST",// каким обзазом 
+                    headers: {
+                        'Content-type': 'application/json'
+                    },
+                    body: JSON.stringify(object) // что именно 
                 })
-
+                
+                .then(data => data.text()) //модификация в текст 
+                .then(data => { //data -то что нам вернул сервер
+                    console.log(data);// если запрос выполнен и данные улетели 
+                    showThanksModal(massag.success)
+                    statusMessage.remove()// удаляем спинер 
+                }).catch(() => {
+                    showThanksModal(massag.failure)// если что то пойдет не так 
+                }).finally(() =>{
+                    form.reset()//  сбрасывем формы 
+                })
             })
         }
         
@@ -328,8 +324,4 @@ window.addEventListener('DOMContentLoaded', ()=>{ // делаем загрузк
                 closeModal()
             }, 4000)
         }
-         
-
-
-
 });
