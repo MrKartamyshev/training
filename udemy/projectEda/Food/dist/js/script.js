@@ -1,5 +1,3 @@
-
-
 window.addEventListener('DOMContentLoaded', ()=>{ // делаем загрузку после все остальное 
         
     
@@ -263,7 +261,7 @@ window.addEventListener('DOMContentLoaded', ()=>{ // делаем загрузк
                 statusMessage.style.cssText = `
                     display: block;
                     margin: 0 auto;
-                `
+                    `
         
                 form.insertAdjacentElement('afterend', statusMessage)//добавляем в конец элементов 
 
@@ -324,4 +322,9 @@ window.addEventListener('DOMContentLoaded', ()=>{ // делаем загрузк
                 closeModal()
             }, 4000)
         }
+        
+
+        fetch('db.json')// отправляем запрос на db.json
+            .then(data => data.json()) // обрабатывает ответ от сервера и превращзаем в обьект 
+            .then(res => console.log(res))
 });
