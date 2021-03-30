@@ -327,5 +327,6 @@ window.addEventListener('DOMContentLoaded', ()=>{ // делаем загрузк
         fetch('db.json')// отправляем запрос на db.json
             .then(data => data.json()) // обрабатывает ответ от сервера и превращзаем в обьект 
             .then(res => console.log(res))
-            console.log('hi');
+            console.log('hihi');
+
 });
