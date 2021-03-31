@@ -361,60 +361,135 @@ window.addEventListener('DOMContentLoaded', ()=>{ // делаем загрузк
     
     
     
-    //Slider        
+    //Slider #1       
 
-        const slides = document.querySelectorAll('.offer__slide'),  // получаем елементы со страницы 
-            prev = document.querySelector('.offer__slider-prev'),
-            next = document.querySelector('.offer__slider-next'),
-            total = document.querySelector('#total'),
-            current = document.querySelector('#current')
-
-
-        let slideIndex = 1; 
-
-        showSlides(slideIndex) // показать первый слайд 
+        // const slides = document.querySelectorAll('.offer__slide'),  // получаем елементы со страницы 
+        //     prev = document.querySelector('.offer__slider-prev'),
+        //     next = document.querySelector('.offer__slider-next'),
+        //     total = document.querySelector('#total'),
+        //     current = document.querySelector('#current')
 
 
-        // выводим общее количество слайдов 
-        if (slides.length <10){
-            total.textContent = `0${slides.length}`
-        } else {
-            total.textContent = slides.length
-        }
+        // let slideIndex = 1; 
+
+        // showSlides(slideIndex) // показать первый слайд 
 
 
-        function showSlides(n){ // делаем функцию слайдера
-            if (n > slides.length) {// если номер слайдера больше последнего слайдера 
-                slideIndex = 1 //покажи слайд 1  
-            }
+        // // выводим общее количество слайдов 
+        // if (slides.length <10){
+        //     total.textContent = `0${slides.length}`
+        // } else {
+        //     total.textContent = slides.length
+        // }
 
-            if (n < 1){
-                slideIndex = slides.length// если меньне покажи последний слайд 
-            }
 
-            slides.forEach(item => item.style.display = 'none')// скрыть все слайды 
+        // function showSlides(n){ // делаем функцию слайдера
+        //     if (n > slides.length) {// если номер слайдера больше последнего слайдера 
+        //         slideIndex = 1 //покажи слайд 1  
+        //     }
 
-            slides[slideIndex - 1].style.display = 'block'// покажи заданный слайд 
+        //     if (n < 1){
+        //         slideIndex = slides.length// если меньне покажи последний слайд 
+        //     }
 
-            if (slides.length <10){
-                current.textContent = `0${slideIndex}`
-            } else {
-                current.textContent = slideIndex
-            }
-        }
+        //     slides.forEach(item => item.style.display = 'none')// скрыть все слайды 
 
-        function plusSlides(n){ // делаем функцию какой слайдер показать 
-            showSlides(slideIndex += n)// вызываем показ слайдера + n 
-        }
+        //     slides[slideIndex - 1].style.display = 'block'// покажи заданный слайд 
 
-        prev.addEventListener('click', () => {// навешиваем события и нимусуем 1
-            plusSlides(-1)
-        })
+        //     if (slides.length <10){
+        //         current.textContent = `0${slideIndex}`
+        //     } else {
+        //         current.textContent = slideIndex
+        //     }
+        // }
+
+        // function plusSlides(n){ // делаем функцию какой слайдер показать 
+        //     showSlides(slideIndex += n)// вызываем показ слайдера + n 
+        // }
+
+        // prev.addEventListener('click', () => {// навешиваем события и нимусуем 1
+        //     plusSlides(-1)
+        // })
         
-        next.addEventListener('click', () => {// плюсуем 1 
-            plusSlides(1)
-        })
+        // next.addEventListener('click', () => {// плюсуем 1 
+        //     plusSlides(1)
+        // })
 
+    
+    
+    //Slide #2
 
+    let offset = 0;
+    let slideIndex = 1;
 
+    const slides = document.querySelectorAll('.offer__slide'),
+        prev = document.querySelector('.offer__slider-prev'),
+        next = document.querySelector('.offer__slider-next'),
+        total = document.querySelector('#total'),
+        current = document.querySelector('#current'),
+        slidesWrapper = document.querySelector('.offer__slider-wrapper'),
+        width = window.getComputedStyle(slidesWrapper).width,
+        slidesField = document.querySelector('.offer__slider-inner');
+
+    if (slides.length < 10) {
+        total.textContent = `0${slides.length}`;
+        current.textContent =  `0${slideIndex}`;
+    } else {
+        total.textContent = slides.length;
+        current.textContent =  slideIndex;
+    }
+    
+    slidesField.style.width = 100 * slides.length + '%';
+    slidesField.style.display = 'flex';
+    slidesField.style.transition = '0.5s all';
+
+    slidesWrapper.style.overflow = 'hidden';
+
+    slides.forEach(slide => {
+        slide.style.width = width;
+    });
+
+    next.addEventListener('click', () => {
+        if (offset == (+width.slice(0, width.length - 2) * (slides.length - 1))) {
+            offset = 0;
+        } else {
+            offset += +width.slice(0, width.length - 2); 
+        }
+
+        slidesField.style.transform = `translateX(-${offset}px)`;
+
+        if (slideIndex == slides.length) {
+            slideIndex = 1;
+        } else {
+            slideIndex++;
+        }
+
+        if (slides.length < 10) {
+            current.textContent =  `0${slideIndex}`;
+        } else {
+            current.textContent =  slideIndex;
+        }
+    });
+
+    prev.addEventListener('click', () => {
+        if (offset == 0) {
+            offset = +width.slice(0, width.length - 2) * (slides.length - 1);
+        } else {
+            offset -= +width.slice(0, width.length - 2);
+        }
+
+        slidesField.style.transform = `translateX(-${offset}px)`;
+
+        if (slideIndex == 1) {
+            slideIndex = slides.length;
+        } else {
+            slideIndex--;
+        }
+
+        if (slides.length < 10) {
+            current.textContent =  `0${slideIndex}`;
+        } else {
+            current.textContent =  slideIndex;
+        }
+    });
 });
