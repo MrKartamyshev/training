@@ -221,40 +221,40 @@ window.addEventListener('DOMContentLoaded', ()=>{ // делаем загрузк
                 })
             })
         
-        // второй вариант 
-    //     getResource('http://localhost:3000/menu')
-    //     .then(data => createCard(data));
+                // второй вариант 
+            //     getResource('http://localhost:3000/menu')
+            //     .then(data => createCard(data));
 
-    // function createCard(data) {
-    //     data.forEach(({img, altimg, title, descr, price}) => {
-    //         const element = document.createElement('div');
+            // function createCard(data) {
+            //     data.forEach(({img, altimg, title, descr, price}) => {
+            //         const element = document.createElement('div');
 
-    //         element.classList.add("menu__item");
+            //         element.classList.add("menu__item");
 
-    //         element.innerHTML = `
-    //             <img src=${img} alt=${altimg}>
-    //             <h3 class="menu__item-subtitle">${title}</h3>
-    //             <div class="menu__item-descr">${descr}</div>
-    //             <div class="menu__item-divider"></div>
-    //             <div class="menu__item-price">
-    //                 <div class="menu__item-cost">Цена:</div>
-    //                 <div class="menu__item-total"><span>${price}</span> грн/день</div>
-    //             </div>
-    //         `;
-    //         document.querySelector(".menu .container").append(element);
-    //     });
-    // }
+            //         element.innerHTML = `
+            //             <img src=${img} alt=${altimg}>
+            //             <h3 class="menu__item-subtitle">${title}</h3>
+            //             <div class="menu__item-descr">${descr}</div>
+            //             <div class="menu__item-divider"></div>
+            //             <div class="menu__item-price">
+            //                 <div class="menu__item-cost">Цена:</div>
+            //                 <div class="menu__item-total"><span>${price}</span> грн/день</div>
+            //             </div>
+            //         `;
+            //         document.querySelector(".menu .container").append(element);
+            //     });
+            // }
 
 
-    //  Пример интеграции сторонней библиотеки 
-    // axios.get('http://localhost:3000/menu')
-    //         .then(data => {
-    //             data.data.forEach(({img, altimg, title, descr, price}) => {// деструктуризируем и передвем
-    //                 new MenuCard(img, altimg, title, descr, price, '.menu .container').render()// рендерим что передали создает новые карточки 
-    //             })
-    //         } )
-    
-       
+            //  Пример интеграции сторонней библиотеки 
+            // axios.get('http://localhost:3000/menu')
+            //         .then(data => {
+            //             data.data.forEach(({img, altimg, title, descr, price}) => {// деструктуризируем и передвем
+            //                 new MenuCard(img, altimg, title, descr, price, '.menu .container').render()// рендерим что передали создает новые карточки 
+            //             })
+            //         } )
+            
+            
     //собираем данные и отправляем на сервер 
 
 
@@ -325,7 +325,7 @@ window.addEventListener('DOMContentLoaded', ()=>{ // делаем загрузк
             })
         }
         
-        //Благодарность в модальном окне 
+    //Благодарность в модальном окне 
         
         function showThanksModal(message) {
             const prevModalDialog = document.querySelector('.modal__dialog')// получили селектор для работы 
@@ -356,4 +356,65 @@ window.addEventListener('DOMContentLoaded', ()=>{ // делаем загрузк
         fetch('http://localhost:3000/menu')// отправляем запрос на db.json
             .then(data => data.json()) // обрабатывает ответ от сервера и превращзаем в обьект 
             .then(res => console.log(res))
+
+
+    
+    
+    
+    //Slider        
+
+        const slides = document.querySelectorAll('.offer__slide'),  // получаем елементы со страницы 
+            prev = document.querySelector('.offer__slider-prev'),
+            next = document.querySelector('.offer__slider-next'),
+            total = document.querySelector('#total'),
+            current = document.querySelector('#current')
+
+
+        let slideIndex = 1; 
+
+        showSlides(slideIndex) // показать первый слайд 
+
+
+        // выводим общее количество слайдов 
+        if (slides.length <10){
+            total.textContent = `0${slides.length}`
+        } else {
+            total.textContent = slides.length
+        }
+
+
+        function showSlides(n){ // делаем функцию слайдера
+            if (n > slides.length) {// если номер слайдера больше последнего слайдера 
+                slideIndex = 1 //покажи слайд 1  
+            }
+
+            if (n < 1){
+                slideIndex = slides.length// если меньне покажи последний слайд 
+            }
+
+            slides.forEach(item => item.style.display = 'none')// скрыть все слайды 
+
+            slides[slideIndex - 1].style.display = 'block'// покажи заданный слайд 
+
+            if (slides.length <10){
+                current.textContent = `0${slideIndex}`
+            } else {
+                current.textContent = slideIndex
+            }
+        }
+
+        function plusSlides(n){ // делаем функцию какой слайдер показать 
+            showSlides(slideIndex += n)// вызываем показ слайдера + n 
+        }
+
+        prev.addEventListener('click', () => {// навешиваем события и нимусуем 1
+            plusSlides(-1)
+        })
+        
+        next.addEventListener('click', () => {// плюсуем 1 
+            plusSlides(1)
+        })
+
+
+
 });
