@@ -246,6 +246,13 @@ window.addEventListener('DOMContentLoaded', ()=>{ // делаем загрузк
     // }
 
 
+    //  Пример интеграции сторонней библиотеки 
+    // axios.get('http://localhost:3000/menu')
+    //         .then(data => {
+    //             data.data.forEach(({img, altimg, title, descr, price}) => {// деструктуризируем и передвем
+    //                 new MenuCard(img, altimg, title, descr, price, '.menu .container').render()// рендерим что передали создает новые карточки 
+    //             })
+    //         } )
     
        
     //собираем данные и отправляем на сервер 
