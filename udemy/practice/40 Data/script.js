@@ -20,22 +20,33 @@
 // alert(`Цыкл отработал за ${end - start} милисикунд`)
 
 
-let arrayOfSheep = [true,  true,  true,  false,
-    true,  true,  true,  true ,
-    true,  false, true,  false,
-    true,  false, false, true ,
-    true,  true,  true,  true ,
-    false, false, true,  true]
+// let arrayOfSheep = [true,  true,  true,  false,
+//     true,  true,  true,  true ,
+//     true,  false, true,  false,
+//     true,  false, false, true ,
+//     true,  true,  true,  true ,
+//     false, false, true,  true]
 
-function countSheeps(arrayOfSheep) {
-    return arrayOfSheep.filter(Boolean).length;
+// function countSheeps(arrayOfSheep) {
+//     return arrayOfSheep.filter(Boolean).length;
+// }
+//  console.log(countSheeps(arrayOfSheep));
+
+// const month = 10
+
+//  const quarterOf = (month) => {
+//     // Your code here
+//     return Math.ceil(month / 3);// возвращает ближайшее целое число 
+//   }
+//   console.log(quarterOf(month));
+
+let arr = []
+  function generateRange(min, max, step){
+    do {
+    arr.push(min)
+    min = min + step 
+    } while (min <= max)
 }
- console.log(countSheeps(arrayOfSheep));
+generateRange(3, 20, 2)
+console.log(arr)
 
-const month = 10
-
- const quarterOf = (month) => {
-    // Your code here
-    return Math.ceil(month / 3);// возвращает ближайшее целое число 
-  }
-  console.log(quarterOf(month));
