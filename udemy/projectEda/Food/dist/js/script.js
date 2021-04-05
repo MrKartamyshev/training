@@ -457,6 +457,7 @@ window.addEventListener('DOMContentLoaded', ()=>{ // делаем загрузк
 
     // создаем индекатор и добавляем на страничку
     const indicators = document.createElement('ol')
+        dots =[]
     indicators.classList.add('carousel-indicators')
     indicators.style.cssText = `
         position: absolute;
@@ -495,7 +496,7 @@ window.addEventListener('DOMContentLoaded', ()=>{ // делаем загрузк
             dot.style.opacity = 1
         }
         indicators.append(dot)
-        dots.pusd(dot)
+        dots.push(dot)
     }
 
 
