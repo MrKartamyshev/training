@@ -404,6 +404,7 @@ a {
     box-shadow: 0 4px 25px rgba(0, 0, 0, 0.25);
     font-size: 16px;
     font-weight: 300;
+    margin: 0 10px;
 }
 .menu__item img {
     width: 100%;
@@ -419,6 +420,7 @@ a {
 .menu__item-descr {
     margin-top: 20px;
     padding: 0 20px;
+    height: 130px;
 }
 .menu__item-divider {
     width: 100%;
