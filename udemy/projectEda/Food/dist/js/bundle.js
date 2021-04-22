@@ -283,29 +283,28 @@ module.exports = forms
   \*****************************/
 /***/ ((module) => {
 
+
 function modal(){
-    const modalTrigger = document.querySelectorAll('[data-modal]'),
-    modal = document.querySelector('.modal')
+    const   modalTrigger = document.querySelectorAll('[data-modal]'),
+            modal = document.querySelector('.modal')
     
+
+            openModal = () => {
+                modal.classList.add('show'),
+                modal.classList.remove('hide'),
+                document.body.style.overflow = 'hidden';
+                //clearInterval(modalTimerId); // если уже открыл то таймер не сработает 
+            }// выключаем что бы не прокручивалось 
+            // так же можно сделать через toggle
+            // modal.classList.toggle('show') добавляем и удаляем 
+            closeModal = () => {
+                modal.classList.add('hide'),
+                modal.classList.remove('show'),
+                document.body.style.overflow = ''};// возварщаем по дефолту 
+            
+            
+            
     
-    openModal = () => {
-         modal.classList.add('show'),
-         modal.classList.remove('hide'),
-         document.body.style.overflow = 'hidden';
-         //clearInterval(modalTimerId); // если уже открыл то таймер не сработает 
-     }// выключаем что бы не прокручивалось 
- // так же можно сделать через toggle
- // modal.classList.toggle('show') добавляем и удаляем 
-    closeModal = () => {
-         modal.classList.add('hide'),
-         modal.classList.remove('show'),
-         document.body.style.overflow = ''};// возварщаем по дефолту 
-
- 
- 
-
-
- 
  // навешиваем события на каждый элемент в массиве 
  modalTrigger.forEach((item) => {
      item.addEventListener('click', () =>{
